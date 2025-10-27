@@ -200,3 +200,7 @@ Short-lived branches for new features, bug fix and refactoring
 Github-flow and Git-flow (has more structures and rules has long-running and short-lived)
 Pull request is an alternative to directly merging, and pull requests are made for another set of eyes to understand something.
 Merge conflicts can be caused by `merge,rebase,pull,cherry-pick,stash` commands.
+Contradicting code changes, are not resolvable by git.
+
+git merge --abort
+git rebase --abort
