@@ -182,8 +182,21 @@ Ask yourself — _“If added to the codebase, this code will ___.”_
 
 ## 📎 References
 
-- **YouTube Tutorial:** [Git Basics Explained](https://www.youtube.com/watch?v=yTFC_MvwJvQ)
-- **Topics to Review:**
-  - `git fetch` (see above)
-  - `git reset` vs `git revert`
-  - Common Git parameters and commit message conventions
+- `git fetch` (see above)
+- `git reset` vs `git revert`
+- Common Git parameters and commit message conventions
+
+--
+
+## More details
+
+A git commit should only be selective and include relevant changes
+`git dif` compares the difference between a file in git.
+`git add -p` lets you hunk your commits
+`git commit` and you need to add an empty line for git to know what you are doing
+State, Release, And feature branches
+Long-running branches are branches that have been in the complete life-cycle. You mirror this structure (used for releasing code)
+Short-lived branches for new features, bug fix and refactoring
+Github-flow and Git-flow (has more structures and rules has long-running and short-lived)
+Pull request is an alternative to directly merging, and pull requests are made for another set of eyes to understand something.
+Merge conflicts can be caused by `merge,rebase,pull,cherry-pick,stash` commands.
