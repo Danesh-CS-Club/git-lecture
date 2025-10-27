@@ -232,4 +232,4 @@ git --log to have logs after a filter for arguments:
 --after or --before for dates
 --author
 or do -- FILENAME
-
+or then use something like git log feature/login..main all commits that are in main but not in feature/login
