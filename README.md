@@ -204,3 +204,8 @@ Contradicting code changes, are not resolvable by git.
 
 git merge --abort
 git rebase --abort
+git mergetool
+As branches are significant for developers, its key to understand how we integrate new code into a branch, we can do that by using rebase or merge
+Git merge checks 3 things, the common ancestor the commit of the last branch of A and B
+What is the merge commit?
+
