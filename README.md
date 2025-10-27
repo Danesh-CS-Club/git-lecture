@@ -208,4 +208,28 @@ git mergetool
 As branches are significant for developers, its key to understand how we integrate new code into a branch, we can do that by using rebase or merge
 Git merge checks 3 things, the common ancestor the commit of the last branch of A and B
 What is the merge commit?
+Git cherry pick allows for git to get a specific commit and change its branch
+
+Its an important skill to cleanup commit logs when wanting to merge two branches. It helps alot in the long-run and thats what interactive rebase allows us to do
+HEAD~ is nth from the HEAD
+git rebase -i
+and use git reset --hard HEAD~1 to remove the last commit
+
+use git reflog
+and git branch feature/login (id)
+
+Git submodules
+Git submodule add
+remember to use
+git submodule update --init --recursive
+or do
+git clone --recursive-submodules
+Git submodules are not by default checkout, though github does checkout to the default branch when dealing with submodules it opts to go to the default branch
+
+you can use
+git --log to have logs after a filter for arguments:
+--grep for message
+--after or --before for dates
+--author
+or do -- FILENAME
 
