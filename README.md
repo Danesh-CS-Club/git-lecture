@@ -3,8 +3,10 @@
 ---
 
 Terminology used:
-`origin`: the default name git gives to the remote repository you cloned from (origin = https://github.com/...)
+`origin`: the default name git gives to the remote repository you cloned from (origin = <https://github.com/>...)
+
 `tracked`: when `git add` is used
+
 `staged`: when `git commit` is used
 
 How to write good commits:
@@ -19,7 +21,7 @@ If it makes sense then its good
 
 **Parameters:**
 
-`--initial-branch`: sets the initial branch in a newly created repository
+- `--initial-branch`: sets the initial branch in a newly created repository
 
 **Description:**
 
@@ -49,8 +51,8 @@ See modified, staged, and untracked files.
 
 **Parameters:**
 
-_NONE_
-`-w` ignore the white spacce
+- _NONE_
+- `-w` ignore the white spacce
 
 **Description:**
 
@@ -66,7 +68,7 @@ Whats changed but not staged?
 
 **Parameters:**
 
-`--staged` or `--cached` is staged changes that have not yet been committed.
+- `--staged` or `--cached` is staged changes that have not yet been committed.
 
 **Description:**
 
@@ -86,7 +88,7 @@ Whats staged but not committed?
 
 **Parameters:**
 
-`-p` / `--patch` hunks specific code to add them to the index. Gives you a chance to review the difference before adding modified contents to the index.
+- `-p` / `--patch` hunks specific code to add them to the index. Gives you a chance to review the difference before adding modified contents to the index.
 
 **Description:**
 
@@ -98,17 +100,12 @@ Adds files to be staged.
 
 **Parameters:**
 
-_NONE_ an interactive environment, allows for setting long-descriptions by using an empty space
-
-`-m "<message>"` adds a message describing the commit
-
-`-a "<message>"` does a `git add .` and provides an interactive environment.
-
-`-am "<message>"` just like above but also does a `git add .`
-
-`-p` exactly like `git add -p` just remember not to do a `git add` before
-
-`--amend` allows you to edit commit message, and adds the most recent changes to your latest commit
+- _NONE_ an interactive environment, allows for setting long-descriptions by using an empty space
+- `-m "<message>"` adds a message describing the commit
+- `-a "<message>"` does a `git add .` and provides an interactive environment.
+- `-am "<message>"` just like above but also does a `git add .`
+- `-p` exactly like `git add -p` just remember not to do a `git add` before
+- `--amend` allows you to edit commit message, and adds the most recent changes to your latest commit
 
 **Description:**
 
@@ -126,18 +123,18 @@ Saving a stable point, to revert back to in the future.
 
 **Parameters:**
 
-`--oneline` exactly what the name says (keeps simplicity by including commit hash and message)
-`--graph` graphs logs in a horizontal format
-`--oneline --graph` a simplified graph
-`-p` logs actual changes in a file
-`--no-merges` removes the merge commits
+- `--oneline` exactly what the name says (keeps simplicity by including commit hash and message)
+- `--graph` graphs logs in a horizontal format
+- `--oneline --graph` a simplified graph
+- `-p` logs actual changes in a file
+- `--no-merges` removes the merge commits
 
 for (commit/s) filters:
 
 - `--grep` for message
 - `--after` and `--before` for dates
 - `--author` by the author
-- `-- ` for a specific file
+- `--` for a specific file
 
 to compare:
 `git log feature/login..main` all commits that are in main but not in feature/login
@@ -156,11 +153,11 @@ Shows a timeline of project changes and commits.
 
 **Parameters:**
 
-_NONE_ creates a new branch
-`-a` shows all the branches
-`-b` creates a branch and switches automatically
-`-m` renames a branch
-`branch/subbranch` adds sub-branches
+- _NONE_ creates a new branch
+- `-a` shows all the branches
+- `-b` creates a branch and switches automatically
+- `-m` renames a branch
+- `branch/subbranch` adds sub-branches
 
 **Description:**
 
