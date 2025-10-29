@@ -1,235 +1,542 @@
-# 🧭 An Introduction to Git
+# Git Command Reference Guide
 
 ---
 
-## 🏁 Initialization
+Terminology used:
+`origin`: the default name git gives to the remote repository you cloned from (origin = https://github.com/...)
+`tracked`: when `git add` is used
+`staged`: when `git commit` is used
+
+How to write good commits:
+When applied, this commit with \_\_\_.
+If it makes sense then its good
+
+## 1. Repository Initialization
+
+### 1.1 Initialize Repository
 
 **Command:** `git init`
-**Parameters:** _None_
-**Description:** Initializes a new Git repository with the default branch name.
-**Use Case:** When starting a new project or converting an existing folder into a Git repository.
+
+**Parameters:**
+
+`--initial-branch`: sets the initial branch in a newly created repository
+
+**Description:**
+
+Creates an empty git repository - basically a `.git` directory with sub-directories.
 
 ---
 
-## 📋 Checking Repository Status
+## 2. Basic Operations
+
+### 2.1 Check Status
 
 **Command:** `git status`
-**Parameters:** _None_
-**Description:** Displays the state of the working directory and the staging area.
-**Use Case:** See which files are modified, staged, or untracked.
+
+**Parameters:** _NONE_
+
+**Description:**
+
+Shows the difference between the staged area and working directory (the HEAD commit and the index file)
+
+**Use Case:**
+
+See modified, staged, and untracked files.
+
+### 2.2 View Changes
+
+**Command:** `git diff`
+
+**Parameters:**
+
+_NONE_
+`-w` ignore the white spacce
+
+**Description:**
+
+Compared the changes made in your working directory to the staged directory.
+
+**Use Case:**
+
+Whats changed but not staged?
+
+### 2.3 Status of changes
+
+**Command:** `git status`
+
+**Parameters:**
+
+`--staged` or `--cached` is staged changes that have not yet been committed.
+
+**Description:**
+
+Git status shows you both the unstaged changes and staged changes compared to the remote.
+
+**Use Case:**
+
+Whats staged but not committed?
 
 ---
 
-## 📂 Staging and Committing
+## 3. Staging and Committing
 
-### 1. Add Files
+### 3.1 Stage Files
 
 **Command:** `git add <file>`
+
 **Parameters:**
-- `<file>` — specific file name or use `.` to add all changes
-**Description:** Adds files to the staging area (prepares them for commit).
-**Use Case:** Use before committing to include changes in the next snapshot.
 
----
+`-p` / `--patch` hunks specific code to add them to the index. Gives you a chance to review the difference before adding modified contents to the index.
 
-### 2. Commit Changes
+**Description:**
 
-**Command:** `git commit <params> -m "<message>"`
+Adds files to be staged.
+
+### 3.2 Commit Changes
+
+**Command:** `git commit`
+
 **Parameters:**
-- `-m "<message>"` — adds a message describing the commit
-**Description:** Commits staged files and records a snapshot of your project.
-**Use Case:** Save a stable point in your code history that you can revert to later.
 
----
+_NONE_ an interactive environment, allows for setting long-descriptions by using an empty space
 
-### 3. View Commit History
+`-m "<message>"` adds a message describing the commit
 
-**Command:** `git log`
-**Alternative:** `git log --oneline --graph`
-**Description:** Shows commit history, optionally as a compact visual graph.
-**Use Case:** Review the project’s change history or find specific commits.
+`-a "<message>"` does a `git add .` and provides an interactive environment.
 
----
+`-am "<message>"` just like above but also does a `git add .`
 
-## 🌿 Branching
+`-p` exactly like `git add -p` just remember not to do a `git add` before
 
-**Command:** `git branch <params> <name>`
-**Parameters:**
-- No params — create a new branch
-- `-b` — create and switch to the branch automatically
-- `-m old new` — rename a branch
-**Description:** Manages branches within your repository.
-**Use Case:** Isolate development for new features, fixes, or experiments.
+`--amend` allows you to edit commit message, and adds the most recent changes to your latest commit
 
----
+**Description:**
 
-## 🔁 Switching and Checkout
-
-**Command:** `git checkout <hash | commit-id>`
-**Description:** Switches to a specific commit, branch, or tag.
-**Use Case:** View or work from a specific state of the code.
-
----
-
-## 🌐 Remote Repositories
-
-### 1. Add Remote
-
-**Command:** `git remote add <origin-name> <url>`
-**Description:** Links your local repo to a remote one (e.g., GitHub).
-**Use Case:** Sync your code with a remote server for collaboration or backup.
-
----
-
-### 2. Push Changes
-
-**Command:**
-- `git push -u <origin> <branch>`
-- `git push --set-upstream` (alternative form)
-**Description:** Uploads commits from local to remote.
-**Use Case:** Push your local commits online and set the default tracking branch.
-
----
-
-### 3. Pull Changes
-
-**Command:** `git pull`
-**Description:** Fetches and merges changes from the remote repository.
-**Use Case:** Update your local repo with remote changes.
-**Extra:** You can specify `git pull origin main` to pull from a specific branch.
-
----
-
-### 4. Fetch Changes
-
-**Command:** `git fetch`
-**Description:** Downloads objects and refs from another repository without merging.
-**Use Case:** Update local knowledge of remote branches without changing your working files.
-**Difference from pull:** `pull = fetch + merge`
-
----
-
-## 🔀 Merging and Rebasing
-
-### 1. Merge
-
-**Command:** `git merge <branch>`
-**Description:** Combines another branch into the current one.
-**Use Case:** Safely integrate finished work or features.
-**Note:** Merge keeps all commit history intact.
-
----
-
-### 2. Rebase
-
-**Command:** `git rebase <branch>`
-**Description:** Reapplies commits on top of another branch (rewriting history).
-**Use Case:** Clean up local commit history before merging to main.
-**Tip:**
-- Merge = additive (preserves history)
-- Rebase = reconstructive (rewrites it)
-**After conflicts:** Use `git rebase --continue`
-
----
-
-## 🕹 Resetting and Reverting
-
-### 1. Reset
-
-**Command:** `git reset [--soft | --mixed | --hard] <commit>`
-**Description:** Resets your branch to a specific commit.
-**Use Cases:**
-1. **Soft:** Uncommit but keep changes staged.
-2. **Mixed:** Uncommit and unstage changes.
-3. **Hard:** Completely discard commits and changes.
-
----
-
-### 2. Revert
-
-**Command:** `git revert <commit>`
-**Description:** Creates a new commit that undoes changes from a previous one while keeping history intact.
-**Use Case:** Safely undo a commit in public repositories.
-**Tip:** Use `git revert --continue` after resolving conflicts.
-
----
-
-## 🧳 Stashing
-
-**Command:** `git stash`
-**Additional Commands:**
-- `git stash list` — view saved stashes
-- `git stash apply {stash}` — reapply a stash
-**Description:** Temporarily saves uncommitted changes.
-**Use Case:** Switch tasks without committing incomplete work.
-
----
-
-## 🧠 Writing Proper Commit Messages
-
-**Guideline:**
-Ask yourself — _“If added to the codebase, this code will ___.”_
-
-**Tips:**
-- Write in **imperative mood** (e.g., “Add feature X”, “Fix login bug”)
-- Keep it short but descriptive
-
-**Examples:**
-✅ `Add API authentication middleware`
-❌ `Added API authentication middleware`
-
----
-
-## 📎 References
-
-- `git fetch` (see above)
-- `git reset` vs `git revert`
-- Common Git parameters and commit message conventions
-
---
-
-## More details
+Commits staged files and records a snapshot of the project.
 
 A git commit should only be selective and include relevant changes
-`git dif` compares the difference between a file in git.
-`git add -p` lets you hunk your commits
-`git commit` and you need to add an empty line for git to know what you are doing
-State, Release, And feature branches
+
+**Use Case:**
+
+Saving a stable point, to revert back to in the future.
+
+### 3.3 View Commit History
+
+**Command:** `git log`
+
+**Parameters:**
+
+`--oneline` exactly what the name says (keeps simplicity by including commit hash and message)
+`--graph` graphs logs in a horizontal format
+`--oneline --graph` a simplified graph
+`-p` logs actual changes in a file
+`--no-merges` removes the merge commits
+
+for (commit/s) filters:
+
+- `--grep` for message
+- `--after` and `--before` for dates
+- `--author` by the author
+- `-- ` for a specific file
+
+to compare:
+`git log feature/login..main` all commits that are in main but not in feature/login
+
+**Description:**
+
+Shows a timeline of project changes and commits.
+
+---
+
+## 4. Branching
+
+### 4.1 Manage Branches
+
+**Command:** `git branch`
+
+**Parameters:**
+
+_NONE_ creates a new branch
+`-a` shows all the branches
+`-b` creates a branch and switches automatically
+`-m` renames a branch
+`branch/subbranch` adds sub-branches
+
+**Description:**
+
+Managing branches in a repository
+
 Long-running branches are branches that have been in the complete life-cycle. You mirror this structure (used for releasing code)
+
 Short-lived branches for new features, bug fix and refactoring
-Github-flow and Git-flow (has more structures and rules has long-running and short-lived)
-Pull request is an alternative to directly merging, and pull requests are made for another set of eyes to understand something.
-Merge conflicts can be caused by `merge,rebase,pull,cherry-pick,stash` commands.
-Contradicting code changes, are not resolvable by git.
 
-git merge --abort
-git rebase --abort
-git mergetool
-As branches are significant for developers, its key to understand how we integrate new code into a branch, we can do that by using rebase or merge
-Git merge checks 3 things, the common ancestor the commit of the last branch of A and B
-What is the merge commit?
-Git cherry pick allows for git to get a specific commit and change its branch
+### 4.2 Switch Branches
 
-Its an important skill to cleanup commit logs when wanting to merge two branches. It helps alot in the long-run and thats what interactive rebase allows us to do
-HEAD~ is nth from the HEAD
-git rebase -i
-and use git reset --hard HEAD~1 to remove the last commit
+**Command:** `git checkout`
 
-use git reflog
-and git branch feature/login (id)
+**Parameters:**
 
-Git submodules
-Git submodule add
-remember to use
-git submodule update --init --recursive
-or do
-git clone --recursive-submodules
-Git submodules are not by default checkout, though github does checkout to the default branch when dealing with submodules it opts to go to the default branch
+`<hash | commit id>` checkout to a specific hash
+`<branch>` checkout a branch
+`<tags>` checkout to a tag
 
-you can use
-git --log to have logs after a filter for arguments:
---grep for message
---after or --before for dates
---author
-or do -- FILENAME
-or then use something like git log feature/login..main all commits that are in main but not in feature/login
+**Description:**
+
+Switch to a commit, branch, or tag.
+
+---
+
+## 5. Remote Repositories
+
+### 5.1 Add Remote
+
+**Command:** `git remote add`
+
+**Parameters:**
+
+`<origin-name> <url>`
+
+**Description:**
+
+Links your local repository to a remote one
+
+**Use Case:**
+
+### 5.2 Fetch Changes
+
+**Command:** `git fetch`
+
+**Parameters:**
+
+`--depth` to set how deep its history will go
+
+**Description:**
+
+Downloads objects and refs from a remote without merging
+
+**Use Case:**
+
+Check for updates but don't touch my files.
+
+```
+git fetch origin
+git log main..origin/main
+```
+
+### 5.3 Pull Changes
+
+**Command:** `git pull`
+
+**Parameters:**
+
+`<origin> <branch>`
+`--rebase` solve merge conflicts, meaning git will first pull changes, then reapply your unpushed commits on top of the latest version of the remote branch (no need to merge).
+
+**Description:**
+
+Acts exactly like fetch but also merges (or rebase) the two repositories
+
+### 5.4 Push Changes
+
+**Command:** `git push`
+
+**Parameters:**
+
+`<origin> <branch>`
+`--set-upstream` / `-u` flags a local branch to a remote branch. (acts more as a setting option, set it once and forget about it, it links your `branch` to the `origin/branch`)
+`--tags` push all the tags
+
+**Description:**
+
+Uploads the local repository with the staged changes to the remote
+
+---
+
+## 6. Integrating Changes
+
+### 6.1 Merge Branches
+
+**Command:** `git merge`
+
+**Parameters:**
+
+`<branch>` specifies the branch to merge from
+`--no-ff` forces git to act like a pull request, when your merging a local branch into another local branch
+
+**Description:**
+
+Combines two branches into one
+
+**Use Case:**
+
+Merge is additive meaning history is preserved.
+
+### 6.2 Rebase
+
+**Command:** `git rebase`
+
+**Parameters:**
+
+`<branch>` specifies the branch to rebase from``
+`-i` provides an interactive setup for rebasing
+
+**Description:**
+
+Reapplies commits on top of another branch.
+
+**Use Case:**
+
+Clean up local commit history. Rebase is reconstructive meaning history is rewritten.
+
+### 6.3 Cherry-pick
+
+**Command:** `git cherry-pick`
+
+**Parameters:**
+
+`<commit-hash>` the hash of the commit you want to cherry pick
+
+`<hash1> <hash2> <hash3>` / `A..B` for selecting multiple hashes
+
+**Description:**
+
+Copies a specific commit from one branch and applies it onto the current branch. Notes that it duplicates commits.
+
+**Use Case:**
+
+When you've mistakenly committed to the wrong branch you use cherry-pick to revert.
+
+---
+
+## 7. Undoing Changes
+
+### 7.1 Reset
+
+**Command:** `git reset`
+
+**Parameters:**
+
+`--hard` completely discards commits and changes.
+`--soft` uncommit changes but keep them staged (moves HEAD back to a previous commit).
+`--mixed` uncommit and unstage changes.
+`<commit>` you can also do some cool stuff like `HEAD~1` meaning last commit from head
+
+**Description:**
+
+Resets branch to a specific commit
+
+**Use Case:**
+
+You committed too early or made a typo in the message.
+
+### 7.2 Revert
+
+**Command:** `git revert`
+
+**Parameters:**
+
+`<commit-hash>` the hash of the commit
+`-n` tells git only to look at the changes
+
+**Description:**
+
+Creates a new commit that undoes changes from a previous one while keeping history intact.
+
+**Use Case:**
+
+You pushed a commit that breaks stuff, you cant change history so you revert it instead.
+
+---
+
+## 8. Temporary Storage
+
+### 8.1 Stash Changes
+
+**Command:** `git stash`
+
+**Parameters:**
+`-p` stash only some files
+`list` view saved stashes
+`apply {stash}` reaply a stash
+
+**Description:**
+Temporarily saves uncommitted changes.
+
+**Use Case:**
+You've made new changes yet need to prioritize something new, without committing save your code and commit later.
+
+---
+
+## 9. Conflict Resolution
+
+### 9.1 Merge Tool
+
+**Command:** `git mergetool`
+
+**Parameters:** _NONE_
+
+**Description:**
+
+Launches a graphical or diff tool to help resolve merge conflicts.
+
+---
+
+## 10. Recovery and History
+
+### 10.1 Reference Log
+
+**Command:** `git reflog`
+
+**Parameters:** _NONE_
+
+**Description:**
+
+Acts as gits "undo history", meaning even if you have rebased or reset you can see where your branch used to point
+
+**Use Case:**
+
+You mistakenly delete a branch, you can use reflog to get the hash and checkout back to it
+
+```
+git checkout def5678
+git reset --hard def5678
+```
+
+---
+
+## 11. Submodules
+
+### 11.1 Manage Submodules
+
+**Command:** `git submodule`
+
+**Parameters:**
+
+`add <repository>` self explanatory
+`update --remote` pull all the latest versions of the submodules
+
+**Description:**
+
+A git repository inside another git repository.
+
+FYI: when others clone your repo they should also initialize your submodules with `submodule init` or `clone --recurse-submodules`
+
+Also submodules track commits and not branches (meaning when you clone a repository it goes to the exact commit at where the submodules was added, yet in web based github it opts to look at the default branch)
+
+**Use Case:**
+
+When wanting to use other repositories in your current repository you can have it set as a submodule
+
+---
+
+## 12. Working Trees
+
+### 12.1 Manage Worktrees
+
+**Command:** `git worktree`
+
+**Parameters:**
+
+`list` shows all the worktrees
+`remove ../` removes a worktree
+`add ../ -b new-branch` adds a worktree
+
+**Description:**
+
+Allows for having multiple working directories for a single git repository. It allows for multiple workspaces in the same repository.
+
+**Use Case:**
+
+You want to work on multiple branches without having to switch all the time
+
+---
+
+## 13. Configuration
+
+### 13.1 Configure Git
+
+**Command:** `git config`
+
+**Parameters:**
+
+`--global alias.l "log --oneline --graph"`
+
+**Use Case:**
+Easily set aliases for commands you use all the time but don't want to type out the whole name
+
+---
+
+## 14. Tagging
+
+### 14.1 Manage Tags
+
+**Command:** `git tag`
+
+**Parameters:**
+
+_NONE_ lists all the tags
+`v1.0` a pointer to the latest commit
+`v1.0 <hash>` to a commit in the past
+`-a v1.0 -m "<message>"` includes metadata
+
+**Description:**
+
+A git tag is a pointer to a specific commit in git.
+
+**Use Case:**
+
+Acts like a sticky note like releases and milestones. They don't move after they're created.
+
+---
+
+## 15. Cleaning
+
+### 15.1 Clean Untracked Files
+
+**Command:** `git clean`
+
+**Parameters:**
+
+`-n` show only what would be deleted
+`-f` actually delete the files
+
+**Description:**
+Removes untracked files from your currently working directory
+
+**Use Case:**
+Remove artifacts, temp files, and debug outputs.
+
+---
+
+## 16. Cloning
+
+### 16.1 Clone Repository
+
+**Command:** `git clone`
+
+**Parameters:**
+
+`--depth`: add depth for the history of the repository
+
+**Description:**
+Cloning a repository
+
+---
+
+## 17. Bisect
+
+### 17.1 Bisect Commits
+
+**Command:** `git bisect`
+
+**Parameters:**
+
+`start` start the bisect
+`bad` mark the bad comit
+`good <commit>` mark the good commit
+`reset` finish when the bisect is done
+
+**Description:**
+Helps you find a specific commit that introduced a bug in the code using binary search.
+
+---
