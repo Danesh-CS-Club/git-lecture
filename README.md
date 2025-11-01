@@ -35,7 +35,9 @@ Creates an empty git repository - basically a `.git` directory with sub-director
 
 **Command:** `git status`
 
-**Parameters:** _NONE_
+**Parameters:**
+
+- `--staged` or `--cached` is staged changes that have not yet been committed.
 
 **Description:**
 
@@ -43,7 +45,8 @@ Shows the difference between the staged area and working directory (the HEAD com
 
 **Use Case:**
 
-See modified, staged, and untracked files.
+See modified, staged, and untracked files. 
+Whats staged but not committed?
 
 ### 2.2 View Changes
 
@@ -61,22 +64,6 @@ Compared the changes made in your working directory to the staged directory.
 **Use Case:**
 
 Whats changed but not staged?
-
-### 2.3 Status of changes
-
-**Command:** `git status`
-
-**Parameters:**
-
-- `--staged` or `--cached` is staged changes that have not yet been committed.
-
-**Description:**
-
-Git status shows you both the unstaged changes and staged changes compared to the remote.
-
-**Use Case:**
-
-Whats staged but not committed?
 
 ---
 
