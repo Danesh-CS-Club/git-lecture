@@ -63,6 +63,16 @@ Compared the changes made in your working directory to the staged directory.
 
 Whats changed but not staged?
 
+
+**Command:** `git show`
+
+**Parameters:**
+- _HASH ID_
+
+**Description:**
+
+Show changes made in a commit
+
 ---
 
 ## 3. Staging and Committing
