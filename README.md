@@ -52,7 +52,7 @@ Whats staged but not committed?
 
 **Parameters:**
 
-- `--staged` or `--cached` is staged changes that have not yet been committed.
+- `--staged` is staged changes that have not yet been committed.
 - `-w` ignore the white spacce
 
 **Description:**
