@@ -35,9 +35,7 @@ Creates an empty git repository - basically a `.git` directory with sub-director
 
 **Command:** `git status`
 
-**Parameters:**
-
-- `--staged` or `--cached` is staged changes that have not yet been committed.
+**Parameters:** _NONE_
 
 **Description:**
 
@@ -54,7 +52,7 @@ Whats staged but not committed?
 
 **Parameters:**
 
-- _NONE_
+- `--staged` or `--cached` is staged changes that have not yet been committed.
 - `-w` ignore the white spacce
 
 **Description:**
