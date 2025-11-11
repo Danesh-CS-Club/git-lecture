@@ -67,7 +67,7 @@ Whats changed but not staged?
 
 ## 3. Staging and Committing
 
-### 3.1 Stage Files
+### 3.1 Tracking Files
 
 **Command:** `git add <file>`
 
@@ -77,7 +77,7 @@ Whats changed but not staged?
 
 **Description:**
 
-Adds files to be staged.
+Adds files to be tracked.
 
 ### 3.2 Commit Changes
 
