@@ -150,7 +150,6 @@ Shows a timeline of project changes and commits.
 
 - _NONE_ creates a new branch
 - `-a` shows all the branches
-- `-b` creates a branch and switches automatically
 - `-m` renames a branch
 - `branch/subbranch` adds sub-branches
 
@@ -171,6 +170,7 @@ Short-lived branches for new features, bug fix and refactoring
 `<hash | commit id>` checkout to a specific hash
 `<branch>` checkout a branch
 `<tags>` checkout to a tag
+- `-b` creates a branch and switches automatically
 
 **Description:**
 
