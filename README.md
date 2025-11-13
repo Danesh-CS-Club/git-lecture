@@ -3,15 +3,30 @@
 ---
 
 Terminology used:
-`origin`: the default name git gives to the remote repository you cloned from (origin = <https://github.com/>...)
 
-`tracked`: when `git add` is used
+- `origin`: the default name git gives to the remote repository you cloned from (origin = <https://github.com/>...)
 
-`staged`: when `git commit` is used
+- `tracked`: when `git add` is used
 
-How to write good commits:
+- `staged`: when `git commit` is used
+
+- `linear`: meaning commits follow a linear pattern like `A -- B -- C -- D`
+
+- `non-linear`: meaning commits don't follow a linear order
+  
+```
+A -- B -- C
+      \ 
+       D -- E
+            \
+             M   (merge commit)
+```
+
+## How to write good commits:
+
 When applied, this commit with \_\_\_.
-If it makes sense then its good
+
+Try and explain everything you do in this format, if its clear and makes the commit!
 
 ## 1. Repository Initialization
 
@@ -252,8 +267,8 @@ Uploads the local repository with the staged changes to the remote
 
 **Parameters:**
 
-`<branch>` specifies the branch to merge from
-`--no-ff` forces git to act like a pull request, when your merging a local branch into another local branch
+- `<branch>` specifies the branch to merge from
+- `--no-ff` prevents git from making a linear history (no-fast-forward)
 
 **Description:**
 
@@ -262,6 +277,12 @@ Combines two branches into one
 **Use Case:**
 
 Merge is additive meaning history is preserved.
+
+**Fast forwarding:**
+
+In the terminology, i mentioned that we have two types of repositories, linear and non-linear. This same concept can be applied to git merge, a linear merge will have all the commits after the commit, otherwise it git will keep the current branch and make a new commit with the branch creating a non-linear history. 
+
+This is useful when we have a collection of closely related branches.
 
 ### 6.2 Rebase
 
