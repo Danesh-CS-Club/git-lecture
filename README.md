@@ -138,6 +138,8 @@ Saving a stable point, to revert back to in the future.
 - `--oneline --graph` a simplified graph
 - `-p` logs actual changes in a file
 - `--no-merges` removes the merge commits
+- `--decorate` decorates with merge commits, branches, tags
+- `--parents` shows parents of each commit
 
 for (commit/s) filters:
 
