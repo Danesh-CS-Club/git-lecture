@@ -549,10 +549,10 @@ Cloning a repository
 
 **Parameters:**
 
-`start` start the bisect
-`bad` mark the bad comit
-`good <commit>` mark the good commit
-`reset` finish when the bisect is done
+- `start` start the bisect
+- `bad <hash>` mark the bad comit
+- `good <hash>` mark the good commit
+- `reset` finish when the bisect is done
 
 **Description:**
 Helps you find a specific commit that introduced a bug in the code using binary search.
