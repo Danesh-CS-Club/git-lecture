@@ -295,8 +295,8 @@ This is useful when we have a collection of closely related branches.
 
 **Parameters:**
 
-`<branch>` specifies the branch to rebase from``
-`-i` provides an interactive setup for rebasing
+- `<branch>` specifies the branch to rebase from
+- `-i` provides an interactive setup for rebasing
 
 **Description:**
 
