@@ -22,6 +22,9 @@ A -- B -- C
              M   (merge commit)
 ```
 
+<img width="800" height="330" alt="image" src="https://github.com/user-attachments/assets/69759b01-1250-4f07-9e6e-df501f066465" />
+
+
 ## How to write good commits:
 
 When applied, this commit with \_\_\_.
