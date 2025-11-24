@@ -187,9 +187,9 @@ Short-lived branches for new features, bug fix and refactoring
 
 **Parameters:**
 
-`<hash | commit id>` checkout to a specific hash
-`<branch>` checkout a branch
-`<tags>` checkout to a tag
+- `<hash | commit id>` checkout to a specific hash
+- `<branch>` checkout a branch
+- `<tags>` checkout to a tag
 - `-b` creates a branch and switches automatically
 
 **Description:**
@@ -206,7 +206,7 @@ Switch to a commit, branch, or tag.
 
 **Parameters:**
 
-`<origin-name> <url>`
+- `<origin-name> <url>`
 
 **Description:**
 
@@ -241,7 +241,7 @@ git log main..origin/main
 
 **Parameters:**
 
-`<origin> <branch>`
+- `<origin> <branch>`
 `--rebase` solve merge conflicts, meaning git will first pull changes, then reapply your unpushed commits on top of the latest version of the remote branch (no need to merge).
 
 **Description:**
@@ -254,7 +254,7 @@ Acts exactly like fetch but also merges (or rebase) the two repositories
 
 **Parameters:**
 
-`<origin> <branch>`
+- `<origin> <branch>`
 `--set-upstream` / `-u` flags a local branch to a remote branch. (acts more as a setting option, set it once and forget about it, it links your `branch` to the `origin/branch`)
 `--tags` push all the tags
 
@@ -312,9 +312,9 @@ Clean up local commit history. Rebase is reconstructive meaning history is rewri
 
 **Parameters:**
 
-`<commit-hash>` the hash of the commit you want to cherry pick
+- `<commit-hash>` the hash of the commit you want to cherry pick
 
-`<hash1> <hash2> <hash3>` / `A..B` for selecting multiple hashes
+- `<hash1> <hash2> <hash3>` / `A..B` for selecting multiple hashes
 
 **Description:**
 
