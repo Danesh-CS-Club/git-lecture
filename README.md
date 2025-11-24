@@ -334,10 +334,10 @@ When you've mistakenly committed to the wrong branch you use cherry-pick to reve
 
 **Parameters:**
 
-`--hard` completely discards commits and changes.
-`--soft` uncommit changes but keep them staged (moves HEAD back to a previous commit).
-`--mixed` uncommit and unstage changes.
-`<commit>` you can also do some cool stuff like `HEAD~1` meaning last commit from head
+- `--hard` completely discards commits and changes.
+- `--soft` uncommit changes but keep them staged (moves HEAD back to a previous commit).
+- `--mixed` uncommit and unstage changes.
+- `<commit>` you can also do some cool stuff like `HEAD~1` meaning last commit from head
 
 **Description:**
 
@@ -353,8 +353,8 @@ You committed too early or made a typo in the message.
 
 **Parameters:**
 
-`<commit-hash>` the hash of the commit
-`-n` tells git only to look at the changes
+- `<commit-hash>` the hash of the commit
+- `-n` tells git only to look at the changes
 
 **Description:**
 
@@ -373,9 +373,9 @@ You pushed a commit that breaks stuff, you cant change history so you revert it 
 **Command:** `git stash`
 
 **Parameters:**
-`-p` stash only some files
-`list` view saved stashes
-`apply {stash}` reaply a stash
+- `-p` stash only some files
+- `list` view saved stashes
+- `apply {stash}` reaply a stash
 
 **Description:**
 Temporarily saves uncommitted changes.
