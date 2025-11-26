@@ -255,8 +255,8 @@ Acts exactly like fetch but also merges (or rebase) the two repositories
 **Parameters:**
 
 - `<origin> <branch>`
-`--set-upstream` / `-u` flags a local branch to a remote branch. (acts more as a setting option, set it once and forget about it, it links your `branch` to the `origin/branch`)
-`--tags` push all the tags
+- `--set-upstream` / `-u` flags a local branch to a remote branch. (acts more as a setting option, set it once and forget about it, it links your `branch` to the `origin/branch`)
+- `--tags` push all the tags
 
 **Description:**
 
